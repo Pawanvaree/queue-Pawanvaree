@@ -26,14 +26,16 @@ int main(int argc , char **argv) {
 //For struct Queue
 
 
-   int i,x,y;
+   int i,x,y,n = 0;
    
 
 for(i=1;i<argc;i++){
         if(strcmp(argv[i],"x")==0){
+            n++;
             if(q.size != 0){
+              printf("Custumer no: %d\n",n);
               x = dequeue_struct(&q);
-              printf("dequeing %d\n",x);
+              //printf("dequeing %d\n",x);
             }
             else printf("the queue is empty\n");
         }

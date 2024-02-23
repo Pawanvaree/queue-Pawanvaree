@@ -24,9 +24,67 @@ int enqueue_struct(Queue* q, int x, int y){
 
 
 int dequeue_struct(Queue *q){
+   int cash,price;
    NodePtr t=q->headPtr;
    if(t){
-   int value= t->data;
+   int value= t->order;
+   switch (value) {
+      case 1:
+        printf("Ramen\n");
+        price = 100*t->data;
+        printf("You have to pay %d\n",price);
+        while(1){
+          printf("Cash : ");
+          scanf("%d",&cash);
+          if(cash == price){
+            printf("Thank you\n");
+            break;
+          }
+          else if(cash > price){
+            printf("Thank you\n");
+            printf("Change : %d\n",cash-price);
+            break;
+          }
+        }
+        break;
+      case 2:
+        printf("Somtum\n"); 
+        price = 20*t->data;
+        printf("You have to pay %d\n",price);
+        while(1){
+          printf("Cash : ");
+          scanf("%d",&cash);
+          if(cash == price){
+            printf("Thank you\n");
+            break;
+          }
+          else if(cash > price){
+            printf("Thank you\n");
+            printf("Change : %d\n",cash-price);
+            break;
+          }
+        }
+        break;
+      case 3:
+        printf("Fried Chicken\n");
+        price = 50*t->data;
+        printf("You have to pay %d\n",price);
+        while(1){
+          printf("Cash : ");
+          scanf("%d",&cash);
+          if(cash == price){
+            printf("Thank you\n");
+            break;
+          }
+          else if(cash > price){
+            printf("Thank you\n");
+            printf("Change : %d\n",cash-price);
+            break;
+          }
+        }
+        break;
+      default: printf("No Food\n");
+    }
    q->headPtr= t->nextPtr; // NULL
    free(t);
    if(q->size==1) q->tailPtr=NULL;
