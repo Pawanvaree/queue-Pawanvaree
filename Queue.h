@@ -6,14 +6,16 @@ typedef struct {
 }Queue;
 
 
-void enqueue_struct(Queue* q, int x){
+int enqueue_struct(Queue* q, int x, int y){
   Node *new_node=(Node*) malloc(sizeof(Node));
   if(new_node){
-    new_node->data=x;
+    new_node->order=x;
+    new_node->data=y;
     if(q->size==0)q->headPtr=new_node;
     else q->tailPtr->nextPtr=new_node;
     q->tailPtr=new_node;
     q->size++;
+    return x;
   }
 
   /*Finish enqueue */

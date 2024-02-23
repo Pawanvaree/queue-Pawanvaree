@@ -5,7 +5,7 @@
 #include "Queue.h"
 
 int main(int argc , char **argv) {
-  NodePtr headPtr=NULL;
+   NodePtr headPtr=NULL;
    NodePtr tailPtr=NULL;
 
   Queue  q;
@@ -26,17 +26,21 @@ int main(int argc , char **argv) {
 //For struct Queue
 
 
-   int i,x;
+   int i,x,y;
    
 
 for(i=1;i<argc;i++){
         if(strcmp(argv[i],"x")==0){
-            x=dequeue_struct(&q);
-            if(x!=0)printf("dequeing %d\n",x);
-            else printf("Empty queue\n");
+            if(q.size != 0){
+              x = dequeue_struct(&q);
+              printf("dequeing %d\n",x);
+            }
+            else printf("the queue is empty\n");
         }
         else {
-       enqueue_struct(&q, atoi(argv[i]));
+        y = enqueue_struct(&q,atoi(argv[i]),atoi(argv[i+1]));
+        printf("My order is %d\n",y);
+        i++;
            
         }
  }

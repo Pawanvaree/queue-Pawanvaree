@@ -9,6 +9,7 @@
 
 struct node
 {
+    int order;
     int data;
     struct node *nextPtr;
 };
