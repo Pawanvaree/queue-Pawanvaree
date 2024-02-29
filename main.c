@@ -46,5 +46,7 @@ for(i=1;i<argc;i++){
            
         }
  }
+ printf("======================================\n");
+ printf("There are %d people left in the queue\n",q.size);
   return 0;
 }
